@@ -31,6 +31,9 @@ void simulateCycle(deque<Car>& tollQueue, int cycle);
 void runSimulation();
 void display(deque<Car> lanes[]);
 //need a function for both lane switching and selecting a random lane
+int selectRandomLane(int currentLane); // return random int index of selected lane
+void laneSwtiching(deque<Car> lanes[], int currentLane); // Handles lane switching for the rear car 
+// based on updated probabilities
 
 int main() {
 	//Seed
