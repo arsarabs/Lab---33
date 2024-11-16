@@ -29,7 +29,8 @@ void seedRandom();
 void intializeLanes(deque<Car> lanes[], int initalSize); //initalizes all lanes w specifced # of randomly generated cars
 void simulateCycle(deque<Car>& tollQueue, int cycle);
 void runSimulation();
-void display(deque<Car> lanes[]);
+void displayLanes(deque<Car> lanes[]);
+void displayLaneQueue(int laneNumber, deque<Car>& laneDeque);
 //need a function for both lane switching and selecting a random lane
 int selectRandomLane(int currentLane); // return random int index of selected lane
 void laneSwtiching(deque<Car> lanes[], int currentLane); // Handles lane switching for the rear car 
@@ -52,11 +53,11 @@ void seedRandom() {
 	srand(static_cast<unsigned int>(time(0)));
 }
 void intializeLanes(deque<Car> lanes[], int initalSize) {
-	//Simple for loop to intialize the deque with a specificed number of randomly generated cars/
-	for (int i = 0; i < initalSize; i++) {
-		Car car;
-		tollQueue.push_back(car);
+	//Use a nested loop to intialize lanes
+	for (int i = 0; i < NUMBER_LANES; ++i) {
+		for(int j = 0;)
 	}
+	
 }
 void simulateCycle(deque<Car>& tollQueue, int cycle) {
 	cout << endl;
@@ -104,9 +105,18 @@ void runSimulation() {
 
 	cout << "This simulation ran " << cycle << " cycles until the queue was empty; results will vary." << endl;
 }
-void display(deque<Car>lanes[]) {
+void displayLanes(deque<Car>lanes[]) {
 	//use auto to display toll_queue
 	for (auto& car : toll_queue) {
 		car.print();
 	}
+}
+int selectRandomLane(int currentLane) {
+
+}
+void laneSwtiching(deque<Car> lanes[], int currentLane) {
+
+}
+void displayLaneQueue(int laneNumber, deque<Car>& laneDeque) {
+
 }
