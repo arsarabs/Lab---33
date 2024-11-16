@@ -55,9 +55,11 @@ void seedRandom() {
 void intializeLanes(deque<Car> lanes[], int initalSize) {
 	//Use a nested loop to intialize lanes
 	for (int i = 0; i < NUMBER_LANES; ++i) {
-		for(int j = 0;)
-	}
-	
+		for (int j = 0; j < initalSize; ++j) {
+			Car car;
+			lanes[i].push_back(car);
+		}
+	}	
 }
 void simulateCycle(deque<Car>& tollQueue, int cycle) {
 	cout << endl;
@@ -106,13 +108,14 @@ void runSimulation() {
 	cout << "This simulation ran " << cycle << " cycles until the queue was empty; results will vary." << endl;
 }
 void displayLanes(deque<Car>lanes[]) {
-	//use auto to display toll_queue
-	for (auto& car : toll_queue) {
-		car.print();
-	}
+	
 }
 int selectRandomLane(int currentLane) {
-
+	int target = currentLane;
+	while (target == currentLane) {
+		target = rand() % NUMBER_LANES;
+	}
+	return target;
 }
 void laneSwtiching(deque<Car> lanes[], int currentLane) {
 
