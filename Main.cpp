@@ -108,7 +108,9 @@ void runSimulation() {
 	cout << "This simulation ran " << cycle << " cycles until the queue was empty; results will vary." << endl;
 }
 void displayLanes(deque<Car>lanes[]) {
-	
+	for (int i = 0; i < NUMBER_LANES; ++i) {
+		cout << "Lane " 
+	}
 }
 int selectRandomLane(int currentLane) {
 	int target = currentLane;
