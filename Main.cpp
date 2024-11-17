@@ -14,6 +14,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "Car.h"
+#include <string>
 using namespace std;
 
 //UPDATED CONSTANTS
@@ -68,15 +69,33 @@ void simulateCycle(deque<Car> lanes[], int cycle) {
 	//array of strings to store operation performed in each lane
 	string operations[NUMBER_LANES] = { "", "", "" };
 
-
 	//We need to iterate over each lane to perform operations
 	for (int i = 0; i < NUMBER_LANES; ++i) {
 
+		int randNum = randomNumber();
+
 		//46%
-
+		if (randNum <= PAY_PROB) {
+			Car car = lanes[i].front(); //retrieve car from front of the lane
+			lanes[i].pop_front();
+			//RECORD OPERATION HERE
+			operations[i] = "Paid: [" + to_string(car.getYear()) + " " + car.getMake()
+				+ " (" + to_string(car.getTransponder()) + ")]";
+		}
 		//39%
-
+		else if (randNum <= PAY_PROB + JOIN_PROB) {
+			Car newCar;
+			lanes[i].push_back(newCar); //add new car to rear of current lane
+			//RECORD OPERATION HERE
+			operations[i] = "Joined Lane: [" + to_string(newCar.getYear()) + " " + newCar.getMake()
+				+ " (" + to_string(newCar.getTransponder()) + ")]";
+		}
 		//15%
+		else {
+			if (NUMBER_LANES > 1) {
+				Car rearCar = 
+			}
+		}
 
 		//Lane Switching not possible
 
