@@ -27,7 +27,7 @@ const int SIMULATION_PERIOD = 20;
 int randomNumber();
 void seedRandom();
 void intializeLanes(deque<Car> lanes[], int initalSize); //initalizes all lanes w specifced # of randomly generated cars
-void simulateCycle(deque<Car>& tollQueue, int cycle);
+void simulateCycle(deque<Car> lanes[], int cycle);
 void runSimulation();
 void displayLanes(deque<Car> lanes[]);
 void displayLaneQueue(int laneNumber, deque<Car>& laneDeque);
@@ -61,12 +61,50 @@ void intializeLanes(deque<Car> lanes[], int initalSize) {
 		}
 	}	
 }
-void simulateCycle(deque<Car>& tollQueue, int cycle) {
-	//starting from scratch
+void simulateCycle(deque<Car> lanes[], int cycle) {
+	
+	//ROUGH LAYOUT OF THE COMPLICATED FUNCTION
+	
+	//array of strings to store operation performed in each lane
+	string operations[NUMBER_LANES] = { "", "", "" };
+
+
+	//We need to iterate over each lane to perform operations
+	for (int i = 0; i < NUMBER_LANES; ++i) {
+
+		//46%
+
+		//39%
+
+		//15%
+
+		//Lane Switching not possible
+
+		//display operations peformed in each lane
+
+		//display current state
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 void runSimulation() {
 	//starting from scratch (rough layout)
-	int i = 0;
+	int cycle = 0;
 
 	//1. array of deques
 	deque<Car> lanes[NUMBER_LANES];
@@ -79,8 +117,11 @@ void runSimulation() {
 	displayLanes(lanes); 
 
 	//4. create some sort of while loop that will continue the simulation until defined time is reached
-
-
+	while (cycle < SIMULATION_PERIOD) {
+		cycle++; //increment to represent next time period
+		cout << "TIME: " << cycle << endl;
+		simulateCycle(lanes, cycle); //simulate for all lanes during cycle
+	}
 	//5. final display here
 	cout << "Simulation complete after " << SIMULATION_PERIOD << " time periods." << endl;
 }
