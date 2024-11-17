@@ -82,7 +82,7 @@ void simulateCycle(deque<Car>& tollQueue, int cycle) {
 		newCar.print();
 	}
 
-	// 45% probability: New car joins the queue
+	
 
 	//display here 
 	cout << "Queue:" << endl;
@@ -109,7 +109,17 @@ void runSimulation() {
 }
 void displayLanes(deque<Car>lanes[]) {
 	for (int i = 0; i < NUMBER_LANES; ++i) {
-		cout << "Lane " 
+		cout << "Lane " << (i + 1) << ":" << endl;
+		//if/else to check if empty or not
+		if (lanes[i].empty()) {
+			cout << " EMPTY!" << endl;
+		}
+		else {
+			for (auto& car : lanes[i]) {
+				cout << " " << endl;
+				car.print();
+			}
+		}
 	}
 }
 int selectRandomLane(int currentLane) {
@@ -120,7 +130,7 @@ int selectRandomLane(int currentLane) {
 	return target;
 }
 void laneSwtiching(deque<Car> lanes[], int currentLane) {
-
+	//I think I'll leave this empty since the function is going to be handled directly in simulateCycle function
 }
 void displayLaneQueue(int laneNumber, deque<Car>& laneDeque) {
 
