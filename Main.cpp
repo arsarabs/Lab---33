@@ -91,9 +91,18 @@ void simulateCycle(deque<Car> lanes[], int cycle) {
 				+ " (" + to_string(newCar.getTransponder()) + ")]";
 		}
 		//15%
-		else {
+		else { 
 			if (NUMBER_LANES > 1) {
-				Car rearCar = 
+				Car rearCar = lanes[i].back();
+				lanes[i].pop_back(); //remove car from rear of lane as its switching
+				int target = selectRandomLane(i);
+				lanes[target].push_back(rearCar); //add car to rear of selected car lane
+				operations[i] = "Switched: [" + to_string(rearCar.getYear()) + " "
+					+ rearCar.getMake() + " (" + to_string(rearCar.getTransponder())
+					+ ")] to Lane " + to_string(target + 1);
+			}
+			else {
+				operations[i] = "No operation";
 			}
 		}
 
