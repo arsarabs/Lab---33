@@ -133,5 +133,13 @@ void laneSwtiching(deque<Car> lanes[], int currentLane) {
 	//I think I'll leave this empty since the function is going to be handled directly in simulateCycle function
 }
 void displayLaneQueue(int laneNumber, deque<Car>& laneDeque) {
-
+	cout << "Lane " << laneNumber << "Queue: " << endl;
+	if (laneDeque.empty()) {
+		cout << "EMPTY" << endl;
+		return;
+	}
+	for (auto& car : laneDeque) {
+		cout << " " << endl;
+		car.print();
+	}
 }
