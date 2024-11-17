@@ -69,10 +69,14 @@ void runSimulation() {
 	int i = 0;
 
 	//1. array of deques
+	deque<Car> lanes[NUMBER_LANES];
 
 	//2. populate each lane using initalizeLanes
+	intializeLanes(lanes, QUEUE_SIZE);
 
-	//3. display initial state
+	//3. display initial state using disaplyLanes
+	cout << "Initial  Queue: " << endl;
+	displayLanes(lanes); 
 
 	//4. create some sort of while loop that will continue the simulation until defined time is reached
 
