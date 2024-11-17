@@ -62,50 +62,21 @@ void intializeLanes(deque<Car> lanes[], int initalSize) {
 	}	
 }
 void simulateCycle(deque<Car>& tollQueue, int cycle) {
-	cout << endl;
-	cout << "Time: " << cycle << " Operation: " << endl;
-
-	//generate random number here 
-	int randNum = randomNumber();
-
-	// 55% probability: Car pays and leaves
-	if (randNum <= PAY_PROB && !tollQueue.empty()) {
-		Car car = tollQueue.front();
-		tollQueue.pop_front();
-		cout << "Car Paid: ";
-		car.print();
-	}
-	else if (randNum > PAY_PROB && randNum <= PAY_PROB + JOIN_PROB) {
-		Car newCar;
-		tollQueue.push_back(newCar);
-		cout << "Joined Lane:";
-		newCar.print();
-	}
-
-	
-
-	//display here 
-	cout << "Queue:" << endl;
-	display(tollQueue);
+	//starting from scratch
 }
 void runSimulation() {
-	deque<Car> toll_queue;
-	int cycle = 0;
+	//starting from scratch (rough layout)
+	int i = 0;
 
-	// Initialize the queue with the initial number of cars
-	cout << "Initial Queue:" << endl;
-	intializeQueue(toll_queue, QUEUE_SIZE);
+	//1. array of deques
 
-	//then display
-	display(toll_queue);
+	//2. populate each lane using initalizeLanes
 
-	//and finally, run simulation cycles until the queue is empty
-	while (!toll_queue.empty()) {
-		cycle++;
-		simulateCycle(toll_queue, cycle);
-	}
+	//3. display initial state
 
-	cout << "This simulation ran " << cycle << " cycles until the queue was empty; results will vary." << endl;
+	//4. create some sort of while loop that will continue the simulation until defined time is reached
+
+	//5. final display here
 }
 void displayLanes(deque<Car>lanes[]) {
 	for (int i = 0; i < NUMBER_LANES; ++i) {
