@@ -80,7 +80,9 @@ void runSimulation() {
 
 	//4. create some sort of while loop that will continue the simulation until defined time is reached
 
+
 	//5. final display here
+	cout << "Simulation complete after " << SIMULATION_PERIOD << " time periods." << endl;
 }
 void displayLanes(deque<Car>lanes[]) {
 	for (int i = 0; i < NUMBER_LANES; ++i) {
