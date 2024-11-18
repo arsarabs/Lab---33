@@ -19,8 +19,9 @@ using namespace std;
 
 //UPDATED CONSTANTS
 const int QUEUE_SIZE = 2;
-const int PAY_PROB = 55;
-const int JOIN_PROB = 45;
+const int PAY_PROB = 46;          // 46% probability that a car pays and leaves
+const int JOIN_PROB = 39;         // 39% probability that a new car joins the queue
+const int SWITCH_PROB = 15;       // 15% probability that the rear car switches lanes
 const int NUMBER_LANES = 4;
 const int SIMULATION_PERIOD = 20;
 
@@ -64,15 +65,28 @@ void intializeLanes(deque<Car> lanes[], int initalSize) {
 }
 void simulateCycle(deque<Car> lanes[], int cycle) {
 	
-	//ROUGH LAYOUT OF THE COMPLICATED FUNCTION
-	
-	//array of strings to store operation performed in each lane
-	string operations[NUMBER_LANES] = { "", "", "" };
+	// Array of strings to store operations performed in each lane
+	string operations[NUMBER_LANES] = { "", "", "", "" };
+
+
 
 	//We need to iterate over each lane to perform operations
 	for (int i = 0; i < NUMBER_LANES; ++i) {
 
 		int randNum = randomNumber();
+
+		if (lanes[i].empty()) {
+			if (randNum <= 50) { // 50% probability
+				Car newCar;
+				lanes[i].push_back(newCar);
+				operations[i] = "Joined Lane: [" + to_string(newCar.getYear()) + " "
+					+ newCar.getMake() + " (" + to_string(newCar.getTransponder()) + ")]";
+			}
+			else {
+				cout << "No operation" << endl;
+			}
+			continue;
+		}
 
 		//46%
 		if (randNum <= PAY_PROB) {
