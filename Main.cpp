@@ -114,9 +114,16 @@ void simulateCycle(deque<Car> lanes[], int cycle) {
 				// If no operation was recorded, indicate 'No Operation'
 				cout << "No Operation" << endl;
 			}
+			else {
+				cout << operations[i] << endl;
+			}
 		}
 
 		//display current state
+		cout << "Queue:" << endl;
+		for (int i = 0; i < NUMBER_LANES; ++i) {
+			displayLaneQueue(i + 1, lanes[i]);
+		}
 	}
 
 
