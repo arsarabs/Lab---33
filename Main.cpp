@@ -68,8 +68,6 @@ void simulateCycle(deque<Car> lanes[], int cycle) {
 	// Array of strings to store operations performed in each lane
 	string operations[NUMBER_LANES] = { "", "", "", "" };
 
-
-
 	//We need to iterate over each lane to perform operations
 	for (int i = 0; i < NUMBER_LANES; ++i) {
 
@@ -139,23 +137,6 @@ void simulateCycle(deque<Car> lanes[], int cycle) {
 			displayLaneQueue(i + 1, lanes[i]);
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 void runSimulation() {
 	//starting from scratch (rough layout)
