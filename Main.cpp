@@ -106,9 +106,15 @@ void simulateCycle(deque<Car> lanes[], int cycle) {
 			}
 		}
 
-		//Lane Switching not possible
 
 		//display operations peformed in each lane
+		for (int i = 0; i < NUMBER_LANES; ++i) {
+			cout << "Lane " << (i + 1) << ": ";
+			if (operations[i].empty()) {
+				// If no operation was recorded, indicate 'No Operation'
+				cout << "No Operation" << endl;
+			}
+		}
 
 		//display current state
 	}
